@@ -1,10 +1,12 @@
 import { StyleSheet, Image } from "react-native";
 
-export default function ImageViewer({placeholderImageSource}){
-    return(
-        <Image source ={placeholderImageSource} style={styles.image} />
+export default function ImageViewer({placeholderImageSource,selectedImage}){
+     
+        const imageSource = selectedImage  ? { uri: selectedImage } : placeholderImageSource;
+
+        return <Image source={imageSource} style={styles.image} />;
     
-    );
+    
 }
 
 const styles = StyleSheet.create({
@@ -12,6 +14,14 @@ const styles = StyleSheet.create({
         width:320,
         height:440,
         borderRadius:18,
+        shadowColor:'#F50DE5',
+        shadowOffset:{
+           qidth:1,
+           height: 1, 
+        },
+        shadowOpacity:0.5,
+        shadowRadius:3,
+
 
     },
 });
